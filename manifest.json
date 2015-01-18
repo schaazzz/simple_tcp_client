@@ -1,0 +1,13 @@
+{
+   "name": "Simple TCP Client",
+   "description": "A simple TCP client which can be used to test communication with a TCP server.",
+   "version": "0.1",
+   "app": {
+      "background": {
+         "scripts": ["js/background.js"]
+      }
+   },
+   "icons": {
+   },
+  "permissions" : ["notifications"]
+}

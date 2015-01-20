@@ -15,11 +15,55 @@ get_ip_port = function() {
 /**
  * Shows an error notification.
  */
-show_ip_error = function() {
+show_error = function(error) {
    chrome.notifications.create('error',
                                {type: 'basic',
                                 title: 'Error',
-                                message: 'Incorrect IP address and/or port number',
+                                message: error,
                                 iconUrl: 'icons/error.png'},
                                 function(){});
+}
+
+/**
+ *
+ */
+notify_connection_state = function(state) {
+   
+   btn = document.getElementById('connect');
+   input = document.getElementById('ip_port');
+   
+   if (state) {
+      btn.innerHTML = 'Disconnect';
+      input.disabled = true;
+   } else {
+      btn.innerHTML = 'Connect';
+      input.disabled = false;
+   }
+}
+
+/**
+ *
+ */
+get_data_to_send = function() {
+   if (document.getElementById('data_source0').checked) {
+      return document.getElementById('predefined_sequences').value;
+   } else {
+      return document.getElementById('input_data').value;
+   }
+}
+
+/**
+ *
+ */
+get_new_sequence = function() {
+   return document.getElementById('new_sequence').value;
+}
+
+/**
+ *
+ */
+add_sequence_to_view = function(sequence) {
+   option = document.createElement('option');
+   option.text = sequence;
+   document.getElementById('predefined_sequences').add(option);
 }

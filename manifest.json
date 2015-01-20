@@ -9,5 +9,6 @@
    },
    "icons": {
    },
+  "sockets": {"tcp": {"connect": "*"}},
   "permissions" : ["notifications"]
 }

@@ -5,6 +5,9 @@
  * ---------------------------------------------------------------------
  */
 
+var connected = false;
+var socket_id = null;
+
 /**
  * Called when a connection has to be established.
  */
@@ -30,6 +33,69 @@ connect = function() {
    }
    
    if (!valid_ip_port) {
-      show_ip_error();
+      show_error('Incorrect IP address and/or port number');
+   } else {
+      chrome.sockets.tcp.create({}, function(createInfo) {
+         socket_id = createInfo.socketId;
+         
+         if (connected) {
+            chrome.sockets.tcp.disconnect(socket_id);
+            connected = false;
+            notify_connection_state(connected);
+         } else {
+            chrome.sockets.tcp.connect(createInfo.socketId, ip_addr, port,
+                                       function(result) {
+                                          if (result < 0) {
+                                             show_error('Connection error: ' + result);
+                                          } else {
+                                             connected = true;
+                                             notify_connection_state(connected);
+                                          }
+                                          
+                                       });
+         }
+      });
    }
+}
+
+/**
+ *
+ */
+save_sequence = function() {
+   var sequence = get_new_sequence();
+   add_sequence_to_view(sequence);
+   //add_sequnece_to_model(sequence);
+}
+
+/**
+ *
+ */
+send_data = function() {
+   var binary = false;
+   var data = get_data_to_send();
+   var buffer_size = data.length;
+   
+   if (data.substring(0,2) == '\\x') {
+      binary = true;
+      data = data.substring(2, data.length);
+      buffer_size = data.length / 2;
+      console.log(data);
+      
+   }
+   
+   var buffer = new ArrayBuffer(buffer_size);
+   var buffer_view = new Uint8Array(buffer);
+      
+   for (var i = 0, j = 0, str_length = data.length; i < str_length; i++, j++) {
+      if (binary) {
+         var value = parseInt(data.substring(i, i + 2), 16);
+         console.log(value);
+         buffer_view[j] = value;
+         i++;
+      } else {
+         buffer_view[i] = data.charCodeAt(i);
+      }
+   }
+   
+   chrome.sockets.tcp.send(socket_id, buffer, function(send_info){console.log(socket_id);console.log(send_info.resultCode);console.log(send_info.bytesSent)});
 }

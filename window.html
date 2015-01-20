@@ -17,14 +17,14 @@
       </section>
 
       <section id = "data_out">
-         <input name = "data_source" type = "radio">
+         <input id = "data_source0" name = "data_source" type = "radio">
          <label>Pre-defined sequences</label>
-         <select name = "predefined_sequences">
+         <select id = "predefined_sequences" name = "predefined_sequences">
          </select>
          <button id = "add_sequence" class = "add_sequence">+</button>
-         <input name = "data_source" type = "radio">
-         <input placeholder = "Raw data">
-         <button>Send</button>
+         <input id = "data_source1" name = "data_source" type = "radio" checked>
+         <input id = "input_data" placeholder = "Enter data to send...">
+         <button id = "send_data">Send</button>
       </section>
       
       <section id = "data_log">
@@ -35,7 +35,7 @@
       </section>
       
       <section id = "popup" style = "display:none;">
-         <input placeholder = "Sequence data...">
+         <input id = "new_sequence" placeholder = "Sequence data...">
          <button id = "save_sequence">Save</button>
          <button id = "close_popup">Close</button>
       </section>

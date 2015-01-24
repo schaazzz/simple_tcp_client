@@ -4,9 +4,29 @@
  * ---------------------------------------------------------------------
  */
 
+/**
+ *
+ */
+var stored_ip_port = undefined;
+
+/**
+ *
+ */
 chrome.app.runtime.onLaunched.addListener(function() {
-   chrome.app.window.create(
-      'window.html',
-      {'bounds': {'width': 560, 'height': 610}}
-   );
+   
+   chrome.storage.sync.get('stored_ip_port',
+      function(obj){
+         console.log(obj);
+         if (obj.stored_ip_port == undefined) {
+            stored_ip_port = undefined;
+         } else {
+            stored_ip_port = obj.stored_ip_port;
+            //document.getElementById('ip_port').value = stored_ip_port;
+         }
+      });
+   
+   chrome.app.window.create('window.html',
+                            {'bounds': {'width': 560, 'height': 610}});
+
 });
+

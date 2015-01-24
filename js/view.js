@@ -67,3 +67,14 @@ add_sequence_to_view = function(sequence) {
    option.text = sequence;
    document.getElementById('predefined_sequences').add(option);
 }
+
+/**
+ *
+ */
+log = function(str) {
+   var txt = document.getElementById('log').value + '\r\n';
+   txt += str;
+   document.getElementById('log').value = txt;
+   
+   console.log(str);
+}

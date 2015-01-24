@@ -10,5 +10,5 @@
    "icons": {
    },
   "sockets": {"tcp": {"connect": "*"}},
-  "permissions" : ["notifications"]
+  "permissions" : ["notifications",  "storage"]
 }

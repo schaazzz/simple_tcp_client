@@ -12,6 +12,9 @@ onload = function() {
       function (bg_page) {
          window.stored_ip_port = bg_page.stored_ip_port;
          document.getElementById('ip_port').value = window.stored_ip_port;
+         
+         //window.stored_sequences = bg_page.stored_sequences;
+         //document.getElementById('').
       });
    
    document.getElementById('add_sequence').onclick = popup;

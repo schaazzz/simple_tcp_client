@@ -21,7 +21,16 @@ chrome.app.runtime.onLaunched.addListener(function() {
             stored_ip_port = undefined;
          } else {
             stored_ip_port = obj.stored_ip_port;
-            //document.getElementById('ip_port').value = stored_ip_port;
+         }
+      });
+   
+   chrome.storage.sync.get('stored_predefined_sequences',
+      function(obj){
+         console.log(obj);
+         if (obj.stored_predefined_sequences == undefined) {
+            stored_predefined_sequences = undefined;
+         } else {
+            stored_predefined_sequences = obj.stored_predefined_sequences;
          }
       });
    

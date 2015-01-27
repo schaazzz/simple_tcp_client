@@ -78,3 +78,17 @@ log = function(str) {
    
    console.log(str);
 }
+
+/**
+ *
+ */
+get_all_sequences = function() {
+   element = document.getElementById('predefined_sequences');
+   options = element.innerHTML;
+   while ((options.match('<option>') != null) && (options.match('</option>') != null)) {
+      options = options.replace('<option>', '');
+      options = options.replace('</option>', ',');
+   }
+   
+   return options.split(',');
+}

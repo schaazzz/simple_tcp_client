@@ -69,6 +69,8 @@ connect = function() {
 save_sequence = function() {
    var sequence = get_new_sequence();
    add_sequence_to_view(sequence);
+   var sequences = get_all_sequences();
+   console.log(sequences);
    //add_sequnece_to_model(sequence);
 }
 

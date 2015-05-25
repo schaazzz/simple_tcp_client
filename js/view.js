@@ -3,7 +3,7 @@
  * @author Shahzeb Ihsan
  * ---------------------------------------------------------------------
  */
- 
+
  /**
  * Returns the value of the IP address and port number entered by the user.
  * @return {string} The text from the ip_port text field.
@@ -28,10 +28,9 @@ show_error = function(error) {
  *
  */
 notify_connection_state = function(state) {
-   
-   btn = document.getElementById('connect');
-   input = document.getElementById('ip_port');
-   
+   var btn = document.getElementById('connect');
+   var input = document.getElementById('ip_port');
+
    if (state) {
       btn.innerHTML = 'Disconnect';
       input.disabled = true;
@@ -63,7 +62,7 @@ get_new_sequence = function() {
  *
  */
 add_sequence_to_view = function(sequence) {
-   option = document.createElement('option');
+   var option = document.createElement('option');
    option.text = sequence;
    document.getElementById('predefined_sequences').add(option);
 }
@@ -75,7 +74,7 @@ log = function(str) {
    var txt = document.getElementById('log').value + '\r\n';
    txt += str;
    document.getElementById('log').value = txt;
-   
+
    console.log(str);
 }
 
@@ -83,12 +82,13 @@ log = function(str) {
  *
  */
 get_all_sequences = function() {
-   element = document.getElementById('predefined_sequences');
-   options = element.innerHTML;
+   var element = document.getElementById('predefined_sequences');
+   var options = element.innerHTML;
    while ((options.match('<option>') != null) && (options.match('</option>') != null)) {
       options = options.replace('<option>', '');
       options = options.replace('</option>', ',');
    }
-   
-   return options.split(',');
+
+   var options_array = options.trim().replace(",,",",").split(',');
+   return options_array.slice(0, options_array.length - 1)
 }

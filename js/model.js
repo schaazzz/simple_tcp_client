@@ -13,3 +13,13 @@ save_ip_port = function(value) {
          console.log('Done');
       });
 }
+
+/**
+ *
+ */
+save_predefined_sequences = function(value) {
+   chrome.storage.sync.set({'stored_predefined_sequences': value},
+      function() {
+         console.log('Ok');
+      });
+}

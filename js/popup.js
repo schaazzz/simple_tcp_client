@@ -3,28 +3,28 @@
  * @author Shahzeb Ihsan
  * ---------------------------------------------------------------------
  */
-  
+
 /**
  * Implements the pop-up functionality.
  */
 function popup (){
    set_size_and_pos('blanket', 'popup');
-   
+
    /* Set height to 'auto' to make the pop-up's contents fit nicely */
    var popup_div = document.getElementById('popup');
    popup_div.style.height = 'auto';
-   
+
    toggle_visibility('blanket');
    toggle_visibility('popup');		
 }
-  
+
 /**
  * Toggle the visibility of the specified element.
  * @param {string} element_id ID of the element.
  */
 function toggle_visibility(element_id) {
 	var element = document.getElementById(element_id);
-   
+
 	if(element.style.display == 'none') {
       element.style.display = 'block';
    } else {
@@ -42,7 +42,7 @@ function set_size_and_pos(blanket_id, popup_id) {
    var blanket_height = 0;
    var viewport_width = 0;
    var viewport_height = 0;
-   
+
    /* Determine the viewport width and height */
    if (typeof window.innerWidth != 'undefined') {
 		viewport_width = window.innerWidth;
@@ -51,7 +51,7 @@ function set_size_and_pos(blanket_id, popup_id) {
 		viewport_width = document.documentElement.clientWidth;
       viewport_height = document.documentElement.clientHeight;
    }
-   
+
    /* Determine the blanket's height */
    if ((viewport_height > document.body.parentNode.scrollHeight) &&
        (viewport_height > document.body.parentNode.clientHeight)) {
@@ -83,10 +83,8 @@ function set_size_and_pos(blanket_id, popup_id) {
          window_width = document.body.parentNode.scrollWidth;
       }
    }
-   
+
    /* Set the pop-up's position */
    var popup_div_top = (window_width / 2) - (get_div_dimensions_from_css('popup').width / 2);
    popup_div.style.left = popup_div_top + 'px';
 }
-
-

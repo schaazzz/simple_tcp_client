@@ -22,6 +22,7 @@ connect = function() {
 
    var ip_port = get_ip_port();
 
+   // Check the value of the enter IP:Port combination
    if (pattern.test(ip_port)) {
       var ip_addr = ip_port.split(':');
       var port = parseInt(ip_addr[1]);

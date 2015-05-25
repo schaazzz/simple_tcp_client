@@ -10,15 +10,17 @@
 onload = function() {
    chrome.runtime.getBackgroundPage(
       function (bg_page) {
+         // Populate the IP address field from the stored value
          window.stored_ip_port = bg_page.stored_ip_port;
 
          if (window.stored_ip_port != undefined) {
             document.getElementById('ip_port').value = window.stored_ip_port;
          }
 
+         // Populate the pre-defined sequences field from the stored value
          window.stored_predefined_sequences = bg_page.stored_predefined_sequences;
 
-         if (window.stored_ip_port != undefined) {
+         if (window.stored_predefined_sequences != undefined) {
             for (var i = 0; i < window.stored_predefined_sequences.length; i++) {
                option = document.createElement('option');
                option.text = window.stored_predefined_sequences[i];
@@ -27,6 +29,7 @@ onload = function() {
          }
       });
 
+   // Attach event listeners to UI elements
    document.getElementById('del_sequence').onclick = del_sequence;
    document.getElementById('add_sequence').onclick = popup;
    document.getElementById('close_popup').onclick = popup;

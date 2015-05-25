@@ -13,14 +13,14 @@ onload = function() {
          // Populate the IP address field from the stored value
          window.stored_ip_port = bg_page.stored_ip_port;
 
-         if (window.stored_ip_port != undefined) {
+         if (window.stored_ip_port !== undefined) {
             document.getElementById('ip_port').value = window.stored_ip_port;
          }
 
          // Populate the pre-defined sequences field from the stored value
          window.stored_predefined_sequences = bg_page.stored_predefined_sequences;
 
-         if (window.stored_predefined_sequences != undefined) {
+         if (window.stored_predefined_sequences !== undefined) {
             for (var i = 0; i < window.stored_predefined_sequences.length; i++) {
                option = document.createElement('option');
                option.text = window.stored_predefined_sequences[i];
@@ -36,4 +36,4 @@ onload = function() {
    document.getElementById('connect').onclick = connect;
    document.getElementById('send_data').onclick = send_data;
    document.getElementById('save_sequence').onclick = save_sequence;
-}
+};

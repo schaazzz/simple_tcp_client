@@ -85,6 +85,6 @@ function set_size_and_pos(blanket_id, popup_id) {
    }
 
    /* Set the pop-up's position */
-   var popup_div_top = (window_width / 2) - (get_div_dimensions_from_css('popup').width / 2);
+   popup_div_top = (window_width / 2) - (get_div_dimensions_from_css('popup').width / 2);
    popup_div.style.left = popup_div_top + 'px';
 }

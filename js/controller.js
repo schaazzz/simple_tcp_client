@@ -21,11 +21,13 @@ connect = function() {
                          '(2[0-5][0-4]|1[0-9][0-9]|[0-9][0-9]|[0-9])\\:\\d+$'].join(''));
 
    var ip_port = get_ip_port();
+   var ip_addr = "";
+   var port = 0;
 
    // Check the value of the enter IP:Port combination
    if (pattern.test(ip_port)) {
-      var ip_addr = ip_port.split(':');
-      var port = parseInt(ip_addr[1]);
+      ip_addr = ip_port.split(':');
+      port = parseInt(ip_addr[1]);
       ip_addr = ip_addr[0];
 
       if ((port > 0) && (port <= 65535)) {
@@ -62,10 +64,10 @@ connect = function() {
             }
          });
    }
-}
+};
 
 /**
- *
+ * Listener for the pop-up's 'Save' button.
  */
 save_sequence = function() {
    var sequence = get_new_sequence();
@@ -73,21 +75,21 @@ save_sequence = function() {
    var sequences = get_all_sequences();
    console.log(sequences);
    save_predefined_sequences(sequences);
-}
+};
 
 /**
- *
-*/
+ * Listener for the app's '-' button.
+ */
 del_sequence = function() {
    var el = document.getElementById('predefined_sequences');
    el.remove(el.selectedIndex);
    var sequences = get_all_sequences();
    console.log(sequences);
    save_predefined_sequences(sequences);
-}
+};
 
 /**
- *
+ * Listener for the app's 'Send' button.
  */
 send_data = function() {
    var binary = false;
@@ -119,23 +121,23 @@ send_data = function() {
 
    chrome.sockets.tcp.send(socket_id, buffer,
       function(send_info) {
-         if (send_info.resultCode == 0) {
+         if (send_info.resultCode === 0) {
             log('Successfully sent ' + send_info.bytesSent + ' bytes');
          } else {
             log('Error sending data, error code: ' + send_info.resultCode);
          }
       });
-}
+};
 
 /**
- *
+ * Listener for data reception.
  */
 rcv_handler = function(rcv_info) {
    if (rcv_info.socketId != socket_id) {
       return;
    }
 
-   var hex = []
+   var hex = [];
    var bytes = new Uint8Array(rcv_info.data);
    data = String.fromCharCode.apply(null, new Uint8Array(rcv_info.data));
 
@@ -144,4 +146,4 @@ rcv_handler = function(rcv_info) {
    }
 
    log('<Received: ' + data.length + '>: ' + data + ', hex: [' + hex + ']');
-}
+};

@@ -10,7 +10,7 @@
  * @return {number|number} width, height Width and Height of the specified element.
  */
 function get_div_dimensions_from_css(div_id) {
-   div_style = window.getComputedStyle(document.getElementById(div_id));
+   var div_style = window.getComputedStyle(document.getElementById(div_id));
    
    var temp = div_style.getPropertyValue('width').split('px');
    temp = temp[0];
@@ -23,5 +23,5 @@ function get_div_dimensions_from_css(div_id) {
    return {
       width: div_width,
       height: div_height
-   }
+   };
 }

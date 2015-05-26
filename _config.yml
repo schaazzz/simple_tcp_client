@@ -1,0 +1,6 @@
+name: Simple TCP Client
+markdown: redcarpet
+highlighter: pygments
+baseurl: /simple_tcp_client
+permalink: pretty
+excerpt_separator: <!--more-->

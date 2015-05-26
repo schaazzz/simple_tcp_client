@@ -283,6 +283,11 @@ a {
   text-decoration: none;
 }
 
+p.authorline{
+  margin-bottom: 1px;
+  font-weight: bold;
+}
+
 p a {
   font-weight: 400;
 }

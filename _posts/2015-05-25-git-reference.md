@@ -6,7 +6,7 @@ author: Shahzeb Ihsan
 
 <!--more-->
 
-For reference (mostly my own :stuck_out_tongue_winking_eye:), a few pointers about using "git" with this repository for this tutorial.
+For reference (mostly my own :stuck_out_tongue_winking_eye:), a few pointers about using "git" with the repository for this tutorial.
 
 You can clone just the "sandbox" branch as follows:
 

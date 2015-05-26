@@ -4,7 +4,7 @@ title: GIT Command Reference for this Tutorial
 author: Shahzeb Ihsan
 ---
 
-For reference (mostly my own :stuck\_out\_tongue\_winking\_eye:), a few pointers about using "git" with this repository for this tutorial.
+For reference (mostly my own :stuck_out_tongue_winking_eye:), a few pointers about using "git" with this repository for this tutorial.
 
 You can clone just the "sandbox" branch as follows:
 

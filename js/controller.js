@@ -24,10 +24,10 @@
  */
 
 /**
+ * ---------------------------------------------------------------------
  * @file The "C" of "MVC", all UI event handlers and their handling of side
  *       effects on the model go here.
  * @author Shahzeb Ihsan
- * ---------------------------------------------------------------------
  */
 
 var connected = false;

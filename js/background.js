@@ -24,9 +24,9 @@
  */
 
 /**
+ * ---------------------------------------------------------------------
  * @file Background javascript file for Chrome extension.
  * @author Shahzeb Ihsan
- * ---------------------------------------------------------------------
  */
 
 var stored_ip_port;

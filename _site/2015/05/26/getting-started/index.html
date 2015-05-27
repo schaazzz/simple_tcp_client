@@ -16,7 +16,7 @@
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<title>Getting Started</title>
+<title>Step 1 - Getting Started</title>
 
 
 </head>
@@ -38,7 +38,7 @@
 
       <section id="main_content">
         <header class="post-header">
-    <h1>Getting Started</h1>
+    <h1>Step 1 - Getting Started</h1>
     <p class="meta">May 26, 2015 • Shahzeb Ihsan</p>
 </header>
 
@@ -48,18 +48,29 @@
 
 <!--more-->
 
-<p>Ok, lets get started now.</p>
+<p>OK, lets get started now.</p>
 
-<ol>
+<ul>
 <li>Go to <strong>chrome://extensions/</strong> and enable &quot;Developer mode&quot; so we can load an unpacked extension.</li>
-</ol>
+</ul>
 
 <p><img src="/simple_tcp_client/images/chrome_developer_mode.jpg" alt="Enable &quot;Developer mode&quot; in Chrome"></p>
 
-<ol>
-<li><p>Optional: Install <a href="https://chrome.google.com/webstore/detail/chrome-dev-editor-develop/pnoffddplpippgcfjdhbmhkofpnaalpg?hl=en">Chrome Dev Editor</a>. Chrome Dev Editor is an IDE for building Chrome apps, it is relatively bare-bones as far as modern IDEs go but, nonetheless, a great tool for getting started with Chrome apps.</p></li>
-<li><p>Yada yada yada...</p></li>
-</ol>
+<ul>
+<li><u><strong>Optional</strong></u>: Install <a href="https://chrome.google.com/webstore/detail/chrome-dev-editor-develop/pnoffddplpippgcfjdhbmhkofpnaalpg?hl=en">Chrome Dev Editor</a>. Chrome Dev Editor is an IDE for building Chrome apps, it is relatively bare-bones as far as modern IDEs go but, nonetheless, a great tool for getting started with Chrome apps.</li>
+</ul>
+
+<h2>Components of a Chrome App</h2>
+
+<p>A Chrome app contains...
+1. A manifest file containing your app&#39;s meta data e.g. name, version, properties and required permissions
+2. Event page (backgroud script) which manages your app&#39;s life cycle, this is where all your app&#39;s listeners for window events would be registered
+3. Code files (HTML, CSS, JS) - these are packaged in the app but for now, we will just use the &#39;unpacked&#39; app folder
+4. Assets (images, icons etc.)</p>
+
+<p>More details <a href="https://developer.chrome.com/apps/app_codelab_basics#app-components">here</a>.</p>
+
+<p><a href="/simple_tcp_client/2015/05/27/creating-the-manifest/">Next Step: Creating the Manifest (manifest.json)</a></p>
 
 
       </section>

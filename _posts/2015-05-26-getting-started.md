@@ -17,10 +17,11 @@ OK, lets get started now.
 
 ![Enable "Developer mode" in Chrome]({{ site.baseurl }}/images/chrome_developer_mode.jpg)
 
-* <u>**Optional**</u>: Install [Chrome Dev Editor](https://chrome.google.com/webstore/detail/chrome-dev-editor-develop/pnoffddplpippgcfjdhbmhkofpnaalpg?hl=en). Chrome Dev Editor is an IDE for building Chrome apps, it is relatively bare-bones as far as modern IDEs go but, nonetheless, a great tool for getting started with Chrome apps.
+* <u>**Optional**</u>: Install [Chrome Dev Editor](https://chrome.google.com/webstore/detail/chrome-dev-editor-develop/pnoffddplpippgcfjdhbmhkofpnaalpg?hl=en). "Chrome Dev Editor" is an IDE for building Chrome apps, it is relatively bare-bones as far as modern IDEs go but, nonetheless, a great tool for getting started with Chrome apps. I have this **TBD** tutorial on how to get started with using "Chrome Dev Editor" to develop a Chrome app.
 
 ## Components of a Chrome App
 A Chrome app contains...
+
 1. A manifest file containing your app's meta data e.g. name, version, properties and required permissions
 2. Event page (backgroud script) which manages your app's life cycle, this is where all your app's listeners for window events would be registered
 3. Code files (HTML, CSS, JS) - these are packaged in the app but for now, we will just use the 'unpacked' app folder

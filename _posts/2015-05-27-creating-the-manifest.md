@@ -10,14 +10,14 @@ Creating a manifest is simple enough:
 
 {% highlight javascript %}
 {
-   'name': 'Sample Chrome App',
-   'description': 'A simple chrome app to accompany the tutorial at http://schaazzz.github.io/simple_tcp_client/',
-   'version': '0.1',
-   'app': {
-      'background': {
-         'scripts': ['js/background.js']
-      }
-   }
+    'name': 'Sample Chrome App',
+    'description': 'A simple chrome app to accompany the tutorial at http://schaazzz.github.io/simple_tcp_client/',
+    'version': '0.1',
+    'app': {
+        'background': {
+        'scripts': ['js/background.js']
+        }
+    }
 }
 {% endhighlight %}
 

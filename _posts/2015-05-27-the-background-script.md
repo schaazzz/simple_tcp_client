@@ -20,7 +20,7 @@ In the manifest.json we created in the previous step, we configured the followin
 }
 {% endhighlight %}
 
-Create a folder "js" and create file [background.js]() with the following content:
+Create a folder "js" and create file [background.js](https://raw.githubusercontent.com/schaazzz/simple_tcp_client/sandbox/js/background.js) with the following content:
 
 {% highlight javascript %}
 /**
@@ -35,4 +35,16 @@ chrome.app.runtime.onLaunched.addListener(function() {
 });
 {% endhighlight %}
 
-[Next Step: ...]
+This "listener" will be called when the application is launched, for now, all we are doing in this listener is creating the HTML view. For more details on a Chrome app's lifecycle, checkout [this](https://developer.chrome.com/apps/app_lifecycle) Google page or the following lifecycle diagram for quick reference:
+
+[Lifecycle Diagram from Google Chrome Developer portal![Lifecycle of a Chrome app](https://developer.chrome.com/static/images/applifecycle.png)](https://developer.chrome.com/apps/app_lifecycle)
+
+Now that we have the basic application framework setup, let's create a basic HTML view with some straight forward JavaScript in the [next step](({{ site.baseurl }}{% post_url 2015-05-28-creating-a-simple-application %})) to create a simple application.
+
+To get the "sandbox" branch at this point, you can checkout the following commit (refer to this [post]({{ site.baseurl }}{% post_url 2015-05-25-git-reference %}) if you need a quick reference to Git commands for doing this):
+
+<pre>
+git checkout 0ee524052b0a58f7234d55f3c61875d0545bb3bf
+</pre>
+
+[Next Step: Creating a Simple Application]({{ site.baseurl }}{% post_url 2015-05-28-creating-a-simple-application %})

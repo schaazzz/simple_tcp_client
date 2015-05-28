@@ -54,6 +54,13 @@ A great tutorial for building a packaged Chrome app is available in this <a href
 <dl class="posts">
   
     <dt>---<br>
+    <p class="authorline">May 28, 2015 • Shahzeb Ihsan</p>
+    <h3><a class="post-link" href="/simple_tcp_client/2015/05/28/creating-a-simple-application/">Step 4 - Creating a Simple Application</a></h3>
+    </dt>
+    <dd><p><a href="/simple_tcp_client/2015/05/27/the-background-script/">Previous Step: The Background Script (background.js)</a></p>
+</dd><br/>
+  
+    <dt>---<br>
     <p class="authorline">May 27, 2015 • Shahzeb Ihsan</p>
     <h3><a class="post-link" href="/simple_tcp_client/2015/05/27/the-background-script/">Step 3 - The Background Script (background.js)</a></h3>
     </dt>
@@ -71,7 +78,7 @@ A great tutorial for building a packaged Chrome app is available in this <a href
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 
-<p>Create a folder &quot;js&quot; and create file <a href="">background.js</a> with the following content:</p>
+<p>Create a folder &quot;js&quot; and create file <a href="https://raw.githubusercontent.com/schaazzz/simple_tcp_client/sandbox/js/background.js">background.js</a> with the following content:</p>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**</span>
 <span class="cm"> * &#39;onLaunched&#39; listener</span>
@@ -84,7 +91,19 @@ A great tutorial for building a packaged Chrome app is available in this <a href
 
 <span class="p">});</span></code></pre></div>
 
-<p>[Next Step: ...]</p>
+<p>This &quot;listener&quot; will be called when the application is launched, for now, all we are doing in this listener is creating the HTML view. For more details on a Chrome app&#39;s lifecycle, checkout <a href="https://developer.chrome.com/apps/app_lifecycle">this</a> Google page or the following lifecycle diagram for quick reference:</p>
+
+<p><a href="https://developer.chrome.com/apps/app_lifecycle">Lifecycle Diagram from Google Chrome Developer portal<img src="https://developer.chrome.com/static/images/applifecycle.png" alt="Lifecycle of a Chrome app"></a></p>
+
+<p>Now that we have the basic application framework setup, let&#39;s create a basic HTML view with some straight forward JavaScript in the <a href="(/simple_tcp_client/2015/05/28/creating-a-simple-application/)">next step</a> to create a simple application.</p>
+
+<p>To get the &quot;sandbox&quot; branch at this point, you can checkout the following commit (refer to this <a href="/simple_tcp_client/2015/05/25/git-reference/">post</a> if you need a quick reference to Git commands for doing this):</p>
+
+<pre>
+git checkout 0ee524052b0a58f7234d55f3c61875d0545bb3bf
+</pre>
+
+<p><a href="/simple_tcp_client/2015/05/28/creating-a-simple-application/">Next Step: Creating a Simple Application</a></p>
 </dd><br/>
   
     <dt>---<br>

@@ -20,4 +20,19 @@ In the manifest.json we created in the previous step, we configured the followin
 }
 {% endhighlight %}
 
+Create a folder "js" and create file [background.js]() with the following content:
+
+{% highlight javascript %}
+/**
+ * 'onLaunched' listener
+ */
+chrome.app.runtime.onLaunched.addListener(function() {
+    // We'll add more functionality later, for now we'll just create
+    // the window with dimensions 250x250
+    chrome.app.window.create('window.html',
+                             {'bounds': {'width': 250, 'height': 250}});
+
+});
+{% endhighlight %}
+
 [Next Step: ...]

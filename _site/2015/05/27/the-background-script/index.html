@@ -16,7 +16,7 @@
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<title>Step 2 - Creating the Manifest (manifest.json)</title>
+<title>Step 3 - The Background Script (background.js)</title>
 
 
 </head>
@@ -38,18 +38,17 @@
 
       <section id="main_content">
         <header class="post-header">
-    <h1>Step 2 - Creating the Manifest (manifest.json)</h1>
+    <h1>Step 3 - The Background Script (background.js)</h1>
     <p class="meta">May 27, 2015 • Shahzeb Ihsan</p>
 </header>
 
-<p><a href="/simple_tcp_client/2015/05/26/getting-started/">Previous Step: Getting Started</a></p>
+<p><a href="/simple_tcp_client/2015/05/27/creating-the-manifest/">Previous Step: Creating the Manifest (manifest.json)</a></p>
 
-<p>Creating a manifest is simple enough:</p>
+<p>In the manifest.json we created in the previous step, we configured the following path for background.js:</p>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
-    <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Sample Chrome App&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;description&#39;</span><span class="o">:</span> <span class="s1">&#39;A simple chrome app to accompany the tutorial at http://schaazzz.github.io/simple_tcp_client/&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;version&#39;</span><span class="o">:</span> <span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
+    <span class="c1">//..........</span>
+    <span class="c1">//..........</span>
     <span class="s1">&#39;app&#39;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s1">&#39;background&#39;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s1">&#39;scripts&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;js/background.js&#39;</span><span class="p">]</span>
@@ -57,13 +56,20 @@
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 
-<p>You can download <a href="https://raw.githubusercontent.com/schaazzz/simple_tcp_client/sandbox/manifest.json">manifest.json</a> or checkout the &quot;sandbox&quot; branch from the following commit (refer to this <a href="/simple_tcp_client/2015/05/25/git-reference/">post</a> if you need a quick reference to Git commands for doing this):</p>
+<p>Create a folder &quot;js&quot; and create file <a href="">background.js</a> with the following content:</p>
 
-<pre>
-git checkout c5449c7d5c60b2e6eb946332ec34af8ee1b658df
-</pre>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**</span>
+<span class="cm"> * &#39;onLaunched&#39; listener</span>
+<span class="cm"> */</span>
+<span class="nx">chrome</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">onLaunched</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// We&#39;ll add more functionality later, for now we&#39;ll just create</span>
+    <span class="c1">// the window with dimensions 250x250</span>
+    <span class="nx">chrome</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;window.html&#39;</span><span class="p">,</span>
+                             <span class="p">{</span><span class="s1">&#39;bounds&#39;</span><span class="o">:</span> <span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="o">:</span> <span class="mi">250</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="o">:</span> <span class="mi">250</span><span class="p">}});</span>
 
-<p><a href="/simple_tcp_client/2015/05/27/the-background-script/">Next Step: The Background Script (background.js)</a></p>
+<span class="p">});</span></code></pre></div>
+
+<p>[Next Step: ...]</p>
 
 
       </section>

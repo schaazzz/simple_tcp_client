@@ -4,6 +4,8 @@ title: Step 2 - Creating the Manifest (manifest.json)
 author: Shahzeb Ihsan
 ---
 
+[Previous Step: Getting Started]({{ site.baseurl }}{% post_url 2015-05-26-getting-started %})
+
 Creating a manifest is simple enough:
 
 {% highlight javascript %}

@@ -65,6 +65,57 @@ A great tutorial for building a packaged Chrome app is available in this <a href
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">chrome</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;window.html&#39;</span><span class="p">,</span>
                          <span class="p">{</span><span class="s1">&#39;bounds&#39;</span><span class="o">:</span> <span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="o">:</span> <span class="mi">250</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="o">:</span> <span class="mi">250</span><span class="p">}});</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+   <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;title&gt;</span>Simple TCP Client<span class="nt">&lt;/title&gt;</span>
+      <span class="nt">&lt;link</span> <span class="na">rel =</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href =</span><span class="s">&quot;css/style.css&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;/head&gt;</span>
+
+   <span class="nt">&lt;body&gt;</span>
+
+      <span class="nt">&lt;section</span> <span class="na">id =</span><span class="s">&quot;connection&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;h1&gt;</span><span class="ni">&amp;lt;</span>Simple TCP Client<span class="ni">&amp;gt;</span><span class="nt">&lt;/h1&gt;</span>
+         <span class="nt">&lt;input</span> <span class="na">id =</span><span class="s">&quot;ip_port&quot;</span> <span class="na">placeholder =</span><span class="s">&quot;IP Address:Port&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;connect&quot;</span><span class="nt">&gt;</span>Connect<span class="nt">&lt;/button&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">class =</span><span class="s">&quot;about&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/button&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">class =</span><span class="s">&quot;help&quot;</span><span class="nt">&gt;</span>Help<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/section&gt;</span>
+
+      <span class="nt">&lt;section</span> <span class="na">id =</span><span class="s">&quot;data_out&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;input</span> <span class="na">id =</span><span class="s">&quot;data_source0&quot;</span> <span class="na">name =</span><span class="s">&quot;data_source&quot;</span> <span class="na">type =</span><span class="s">&quot;radio&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;label&gt;</span>Pre-defined sequences<span class="nt">&lt;/label&gt;</span>
+         <span class="nt">&lt;select</span> <span class="na">id =</span><span class="s">&quot;predefined_sequences&quot;</span> <span class="na">name =</span><span class="s">&quot;predefined_sequences&quot;</span><span class="nt">&gt;&lt;/select&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;add_sequence&quot;</span> <span class="na">class =</span><span class="s">&quot;add_sequence&quot;</span><span class="nt">&gt;</span>+<span class="nt">&lt;/button&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;del_sequence&quot;</span> <span class="na">class =</span><span class="s">&quot;add_sequence&quot;</span><span class="nt">&gt;</span>‒<span class="nt">&lt;/button&gt;</span>
+         <span class="nt">&lt;input</span> <span class="na">id =</span><span class="s">&quot;data_source1&quot;</span> <span class="na">name =</span><span class="s">&quot;data_source&quot;</span> <span class="na">type =</span><span class="s">&quot;radio&quot;</span> <span class="na">checked</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;input</span> <span class="na">id =</span><span class="s">&quot;input_data&quot;</span> <span class="na">placeholder =</span><span class="s">&quot;Enter data to send...&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;send_data&quot;</span><span class="nt">&gt;</span>Send<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/section&gt;</span>
+
+      <span class="nt">&lt;section</span> <span class="na">id =</span><span class="s">&quot;data_log&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;textarea</span> <span class="na">id =</span><span class="s">&quot;log&quot;</span> <span class="na">rows =</span><span class="s">&quot;25&quot;</span> <span class="na">cols =</span><span class="s">&quot;5&quot;</span> <span class="na">readonly</span><span class="nt">&gt;</span>Data log...<span class="nt">&lt;/textarea&gt;</span>
+      <span class="nt">&lt;/section&gt;</span>
+
+      <span class="nt">&lt;section</span> <span class="na">id =</span><span class="s">&quot;blanket&quot;</span> <span class="na">style =</span><span class="s">&quot;display:none;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/section&gt;</span>
+
+      <span class="nt">&lt;section</span> <span class="na">id =</span><span class="s">&quot;popup&quot;</span> <span class="na">style =</span><span class="s">&quot;display:none;&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;input</span> <span class="na">id =</span><span class="s">&quot;new_sequence&quot;</span> <span class="na">placeholder =</span><span class="s">&quot;Sequence data...&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;save_sequence&quot;</span><span class="nt">&gt;</span>Save<span class="nt">&lt;/button&gt;</span>
+         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;close_popup&quot;</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/section&gt;</span>
+
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/helpers.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/popup.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/application.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/view.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/controller.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/model.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+   <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 </dd><br/>
   
     <dt>---<br>

@@ -33,7 +33,7 @@ var stored_ip_port;
 var stored_predefined_sequences;
 
 /**
- * 'onLaunched'listener
+ * 'onLaunched' listener
  */
 chrome.app.runtime.onLaunched.addListener(function() {
    // Read the stored IP address

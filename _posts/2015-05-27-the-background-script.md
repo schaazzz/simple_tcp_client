@@ -6,7 +6,7 @@ author: Shahzeb Ihsan
 
 [Previous Step: Creating the Manifest (manifest.json)]({{ site.baseurl }}{% post_url 2015-05-27-creating-the-manifest %})
 
-In the manifest.json we created in the previous step, we configured the following path for background.js:
+In the manifest.json we created in the [previous step]({{ site.baseurl }}{% post_url 2015-05-27-creating-the-manifest %}), we configured the following path for background.js:
 
 {% highlight javascript %}
 {

@@ -18,54 +18,33 @@ chrome.app.window.create('window.html',
 
 
 {% highlight html %}
-<!doctype html>
+
+Now, let's create "window.html" with the following contents:
+
 <html>
-   <head>
-      <meta charset="utf-8">
-      <title>Simple TCP Client</title>
-      <link rel ="stylesheet" href ="css/style.css">
-   </head>
+    <head>
+        <meta charset="utf-8">
+        <title>Sample Chrome App</title>
+    </head>
 
-   <body>
-
-      <section id ="connection">
-         <h1>&lt;Simple TCP Client&gt;</h1>
-         <input id ="ip_port" placeholder ="IP Address:Port">
-         <button id ="connect">Connect</button>
-         <button class ="about">About</button>
-         <button class ="help">Help</button>
-      </section>
-
-      <section id ="data_out">
-         <input id ="data_source0" name ="data_source" type ="radio">
-         <label>Pre-defined sequences</label>
-         <select id ="predefined_sequences" name ="predefined_sequences"></select>
-         <button id ="add_sequence" class ="add_sequence">+</button>
-         <button id ="del_sequence" class ="add_sequence">‒</button>
-         <input id ="data_source1" name ="data_source" type ="radio" checked>
-         <input id ="input_data" placeholder ="Enter data to send...">
-         <button id ="send_data">Send</button>
-      </section>
-
-      <section id ="data_log">
-         <textarea id ="log" rows ="25" cols ="5" readonly>Data log...</textarea>
-      </section>
-
-      <section id ="blanket" style ="display:none;">
-      </section>
-
-      <section id ="popup" style ="display:none;">
-         <input id ="new_sequence" placeholder ="Sequence data...">
-         <button id ="save_sequence">Save</button>
-         <button id ="close_popup">Close</button>
-      </section>
-
-      <script src="js/helpers.js"></script>
-      <script src="js/popup.js"></script>
-      <script src="js/application.js"></script>
-      <script src="js/view.js"></script>
-      <script src="js/controller.js"></script>
-      <script src="js/model.js"></script>
-   </body>
+    <body>
+        <input id = "text" placeholder= "Type something here...">
+        <button id = "enter">Enter</button>
+        <textarea id = "output" rows ="13" cols ="25" readonly>Data log...</textarea>
+    </body>
 </html>
 {% endhighlight %}
+
+Now you can load this intermediate app by going to **chrome://extensions/** and using the "Load unpacked extension..." option. Your directory should look like this:
+
+![Directory structure]({{ site.baseurl }}/images/directory_structure_1.jpg)
+
+...or you can checkout the "sandbox" branch at the following commit (refer to this [post]({{ site.baseurl }}{% post_url 2015-05-25-git-reference %}) if you need a quick reference to Git commands for doing this):
+
+<pre>
+git checkout 0ee524052b0a58f7234d55f3c61875d0545bb3bf
+</pre>
+
+At this point, it will look like this... I know, I know, its not too pretty at this point but we'll style it later with some CSS but for now we'll just focus on the functionality.
+
+![How your app looks like at this point...]({{ site.baseurl }}/images/sample_chrome_app.jpg)

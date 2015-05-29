@@ -12,9 +12,9 @@ In the manifest.json we created in the [previous step]({{ site.baseurl }}{% post
 {
     //..........
     //..........
-    'app': {
-        'background': {
-        'scripts': ['js/background.js']
+    "app": {
+        "background": {
+        "scripts": ["js/background.js"]
         }
     }
 }
@@ -40,11 +40,5 @@ This "listener" will be called when the application is launched, for now, all we
 [Lifecycle Diagram from Google Chrome Developer portal![Lifecycle of a Chrome app](https://developer.chrome.com/static/images/applifecycle.png)](https://developer.chrome.com/apps/app_lifecycle)
 
 Now that we have the basic application framework setup, let's create a basic HTML view with some straight forward JavaScript in the [next step](({{ site.baseurl }}{% post_url 2015-05-28-creating-a-simple-application %})) to create a simple application.
-
-To get the "sandbox" branch at this point, you can checkout the following commit (refer to this [post]({{ site.baseurl }}{% post_url 2015-05-25-git-reference %}) if you need a quick reference to Git commands for doing this):
-
-<pre>
-git checkout 0ee524052b0a58f7234d55f3c61875d0545bb3bf
-</pre>
 
 [Next Step: Creating a Simple Application]({{ site.baseurl }}{% post_url 2015-05-28-creating-a-simple-application %})

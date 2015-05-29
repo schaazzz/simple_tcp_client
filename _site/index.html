@@ -66,56 +66,32 @@ A great tutorial for building a packaged Chrome app is available in this <a href
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">chrome</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;window.html&#39;</span><span class="p">,</span>
                          <span class="p">{</span><span class="s1">&#39;bounds&#39;</span><span class="o">:</span> <span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="o">:</span> <span class="mi">250</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="o">:</span> <span class="mi">250</span><span class="p">}});</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-   <span class="nt">&lt;head&gt;</span>
-      <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;title&gt;</span>Simple TCP Client<span class="nt">&lt;/title&gt;</span>
-      <span class="nt">&lt;link</span> <span class="na">rel =</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href =</span><span class="s">&quot;css/style.css&quot;</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;/head&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Sample Chrome App<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
 
-   <span class="nt">&lt;body&gt;</span>
-
-      <span class="nt">&lt;section</span> <span class="na">id =</span><span class="s">&quot;connection&quot;</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;h1&gt;</span><span class="ni">&amp;lt;</span>Simple TCP Client<span class="ni">&amp;gt;</span><span class="nt">&lt;/h1&gt;</span>
-         <span class="nt">&lt;input</span> <span class="na">id =</span><span class="s">&quot;ip_port&quot;</span> <span class="na">placeholder =</span><span class="s">&quot;IP Address:Port&quot;</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;connect&quot;</span><span class="nt">&gt;</span>Connect<span class="nt">&lt;/button&gt;</span>
-         <span class="nt">&lt;button</span> <span class="na">class =</span><span class="s">&quot;about&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/button&gt;</span>
-         <span class="nt">&lt;button</span> <span class="na">class =</span><span class="s">&quot;help&quot;</span><span class="nt">&gt;</span>Help<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;/section&gt;</span>
-
-      <span class="nt">&lt;section</span> <span class="na">id =</span><span class="s">&quot;data_out&quot;</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;input</span> <span class="na">id =</span><span class="s">&quot;data_source0&quot;</span> <span class="na">name =</span><span class="s">&quot;data_source&quot;</span> <span class="na">type =</span><span class="s">&quot;radio&quot;</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;label&gt;</span>Pre-defined sequences<span class="nt">&lt;/label&gt;</span>
-         <span class="nt">&lt;select</span> <span class="na">id =</span><span class="s">&quot;predefined_sequences&quot;</span> <span class="na">name =</span><span class="s">&quot;predefined_sequences&quot;</span><span class="nt">&gt;&lt;/select&gt;</span>
-         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;add_sequence&quot;</span> <span class="na">class =</span><span class="s">&quot;add_sequence&quot;</span><span class="nt">&gt;</span>+<span class="nt">&lt;/button&gt;</span>
-         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;del_sequence&quot;</span> <span class="na">class =</span><span class="s">&quot;add_sequence&quot;</span><span class="nt">&gt;</span>‒<span class="nt">&lt;/button&gt;</span>
-         <span class="nt">&lt;input</span> <span class="na">id =</span><span class="s">&quot;data_source1&quot;</span> <span class="na">name =</span><span class="s">&quot;data_source&quot;</span> <span class="na">type =</span><span class="s">&quot;radio&quot;</span> <span class="na">checked</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;input</span> <span class="na">id =</span><span class="s">&quot;input_data&quot;</span> <span class="na">placeholder =</span><span class="s">&quot;Enter data to send...&quot;</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;send_data&quot;</span><span class="nt">&gt;</span>Send<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;/section&gt;</span>
-
-      <span class="nt">&lt;section</span> <span class="na">id =</span><span class="s">&quot;data_log&quot;</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;textarea</span> <span class="na">id =</span><span class="s">&quot;log&quot;</span> <span class="na">rows =</span><span class="s">&quot;25&quot;</span> <span class="na">cols =</span><span class="s">&quot;5&quot;</span> <span class="na">readonly</span><span class="nt">&gt;</span>Data log...<span class="nt">&lt;/textarea&gt;</span>
-      <span class="nt">&lt;/section&gt;</span>
-
-      <span class="nt">&lt;section</span> <span class="na">id =</span><span class="s">&quot;blanket&quot;</span> <span class="na">style =</span><span class="s">&quot;display:none;&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/section&gt;</span>
-
-      <span class="nt">&lt;section</span> <span class="na">id =</span><span class="s">&quot;popup&quot;</span> <span class="na">style =</span><span class="s">&quot;display:none;&quot;</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;input</span> <span class="na">id =</span><span class="s">&quot;new_sequence&quot;</span> <span class="na">placeholder =</span><span class="s">&quot;Sequence data...&quot;</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;save_sequence&quot;</span><span class="nt">&gt;</span>Save<span class="nt">&lt;/button&gt;</span>
-         <span class="nt">&lt;button</span> <span class="na">id =</span><span class="s">&quot;close_popup&quot;</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;/section&gt;</span>
-
-      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/helpers.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/popup.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/application.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/view.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/controller.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;js/model.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-   <span class="nt">&lt;/body&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">id =</span><span class="err"> </span><span class="s">&quot;text&quot;</span> <span class="na">placeholder=</span><span class="err"> </span><span class="s">&quot;Type something here...&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">id =</span><span class="err"> </span><span class="s">&quot;enter&quot;</span><span class="nt">&gt;</span>Enter<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;textarea</span> <span class="na">id =</span><span class="err"> </span><span class="s">&quot;output&quot;</span> <span class="na">rows =</span><span class="s">&quot;13&quot;</span> <span class="na">cols =</span><span class="s">&quot;25&quot;</span> <span class="na">readonly</span><span class="nt">&gt;</span>Data log...<span class="nt">&lt;/textarea&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>Now you can load this intermediate app by going to <strong>chrome://extensions/</strong> and using the &quot;Load unpacked extension...&quot; option. Your directory should look like this:</p>
+
+<p><img src="/simple_tcp_client/images/directory_structure_1.jpg" alt="Directory structure"></p>
+
+<p>...or you can checkout the &quot;sandbox&quot; branch at the following commit (refer to this <a href="/simple_tcp_client/2015/05/25/git-reference/">post</a> if you need a quick reference to Git commands for doing this):</p>
+
+<pre>
+git checkout 0ee524052b0a58f7234d55f3c61875d0545bb3bf
+</pre>
+
+<p>At this point, it will look like this... I know, I know, its not too pretty at this point but we&#39;ll style it later with some CSS but for now we&#39;ll just focus on the functionality.</p>
+
+<p><img src="/simple_tcp_client/images/sample_chrome_app.jpg" alt="How your app looks like at this point..."></p>
 </dd><br/>
   
     <dt>---<br>
@@ -129,9 +105,9 @@ A great tutorial for building a packaged Chrome app is available in this <a href
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
     <span class="c1">//..........</span>
     <span class="c1">//..........</span>
-    <span class="s1">&#39;app&#39;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s1">&#39;background&#39;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s1">&#39;scripts&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;js/background.js&#39;</span><span class="p">]</span>
+    <span class="s2">&quot;app&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;background&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;scripts&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;js/background.js&quot;</span><span class="p">]</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div>
@@ -155,12 +131,6 @@ A great tutorial for building a packaged Chrome app is available in this <a href
 
 <p>Now that we have the basic application framework setup, let&#39;s create a basic HTML view with some straight forward JavaScript in the <a href="(/simple_tcp_client/2015/05/28/creating-a-simple-application/)">next step</a> to create a simple application.</p>
 
-<p>To get the &quot;sandbox&quot; branch at this point, you can checkout the following commit (refer to this <a href="/simple_tcp_client/2015/05/25/git-reference/">post</a> if you need a quick reference to Git commands for doing this):</p>
-
-<pre>
-git checkout 0ee524052b0a58f7234d55f3c61875d0545bb3bf
-</pre>
-
 <p><a href="/simple_tcp_client/2015/05/28/creating-a-simple-application/">Next Step: Creating a Simple Application</a></p>
 </dd><br/>
   
@@ -173,21 +143,17 @@ git checkout 0ee524052b0a58f7234d55f3c61875d0545bb3bf
 <p>Creating a manifest is simple enough:</p>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
-    <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Sample Chrome App&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;description&#39;</span><span class="o">:</span> <span class="s1">&#39;A simple chrome app to accompany the tutorial at http://schaazzz.github.io/simple_tcp_client/&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;version&#39;</span><span class="o">:</span> <span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;app&#39;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s1">&#39;background&#39;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s1">&#39;scripts&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;js/background.js&#39;</span><span class="p">]</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Sample Chrome App&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;A simple chrome app to accompany the tutorial at http://schaazzz.github.io/simple_tcp_client/&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;0.1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;app&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;background&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;scripts&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;js/background.js&quot;</span><span class="p">]</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 
-<p>You can download <a href="https://raw.githubusercontent.com/schaazzz/simple_tcp_client/sandbox/manifest.json">manifest.json</a> or checkout the &quot;sandbox&quot; branch from the following commit (refer to this <a href="/simple_tcp_client/2015/05/25/git-reference/">post</a> if you need a quick reference to Git commands for doing this):</p>
-
-<pre>
-git checkout c5449c7d5c60b2e6eb946332ec34af8ee1b658df
-</pre>
+<p>You can download <a href="https://raw.githubusercontent.com/schaazzz/simple_tcp_client/sandbox/manifest.json">manifest.json</a>.</p>
 
 <p><a href="/simple_tcp_client/2015/05/27/the-background-script/">Next Step: The Background Script (background.js)</a></p>
 </dd><br/>

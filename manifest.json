@@ -42,8 +42,6 @@
    },
   "sockets": {"tcp": {"connect": "*"}},
   "permissions" : ["notifications",  "storage"]
-<<<<<<< HEAD
 }
 =======
 }
->>>>>>> 2614a99bb8781d9a93c9334c9e82cdb45092c0dc
